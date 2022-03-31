@@ -352,8 +352,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 1
-#define YY_END_OF_BUFFER 2
+#define YY_NUM_RULES 5
+#define YY_END_OF_BUFFER 6
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -361,9 +361,10 @@ struct yy_trans_info
 	flex_int32_t yy_verify;
 	flex_int32_t yy_nxt;
 	};
-static const flex_int16_t yy_accept[6] =
+static const flex_int16_t yy_accept[13] =
     {   0,
-        0,    0,    2,    1,    0
+        0,    0,    6,    5,    2,    1,    4,    3,    4,    3,
+        0,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -372,16 +373,16 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    2,    1,    3,    1,    1,    4,    4,    4,
+        4,    4,    4,    4,    4,    4,    4,    1,    1,    1,
+        1,    1,    1,    1,    5,    5,    5,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
+        1,    1,    1,    1,    6,    1,    5,    5,    5,    5,
 
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
+        5,    5,    5,    5,    5,    5,    5,    5,    5,    5,
+        5,    5,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -398,29 +399,33 @@ static const YY_CHAR yy_ec[256] =
         1,    1,    1,    1,    1
     } ;
 
-static const YY_CHAR yy_meta[2] =
+static const YY_CHAR yy_meta[7] =
     {   0,
-        1
+        1,    1,    1,    2,    3,    3
     } ;
 
-static const flex_int16_t yy_base[7] =
+static const flex_int16_t yy_base[15] =
     {   0,
-        0,    0,    2,    3,    3,    0
+        0,    0,   12,   13,   13,   13,    0,    5,    0,    4,
+        0,   13,    7,    5
     } ;
 
-static const flex_int16_t yy_def[7] =
+static const flex_int16_t yy_def[15] =
     {   0,
-        6,    6,    5,    5,    0,    5
+       12,    1,   12,   12,   12,   12,   13,   14,   13,   14,
+       10,    0,   12,   12
     } ;
 
-static const flex_int16_t yy_nxt[5] =
+static const flex_int16_t yy_nxt[20] =
     {   0,
-        4,    5,    3,    5
+        4,    5,    6,    7,    8,    4,   10,   10,    9,   11,
+       11,   12,    3,   12,   12,   12,   12,   12,   12
     } ;
 
-static const flex_int16_t yy_chk[5] =
+static const flex_int16_t yy_chk[20] =
     {   0,
-        6,    3,    5,    5
+        1,    1,    1,    1,    1,    1,   14,   14,   13,   10,
+        8,    3,   12,   12,   12,   12,   12,   12,   12
     } ;
 
 static yy_state_type yy_last_accepting_state;
@@ -439,12 +444,11 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "miniL.lex"
 #line 2 "miniL.lex"
-   /* cs152-miniL phase1 */
-   /* write your C code here for definitions of variables and including headers */
-#line 445 "miniL-lex.c"
-#line 8 "miniL.lex"
-   /* some common rules */
-#line 448 "miniL-lex.c"
+  int lineNum = 1, lineCol = 0;
+#line 449 "miniL-lex.c"
+/*To define different patterns*/
+/* Define Rules */
+#line 452 "miniL-lex.c"
 
 #define INITIAL 0
 
@@ -661,13 +665,10 @@ YY_DECL
 		}
 
 	{
-#line 10 "miniL.lex"
-
-   /* specific lexer rules in regex */
+#line 17 "miniL.lex"
 
 
-
-#line 671 "miniL-lex.c"
+#line 672 "miniL-lex.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -694,13 +695,13 @@ yy_match:
 			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 				{
 				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 6 )
+				if ( yy_current_state >= 13 )
 					yy_c = yy_meta[yy_c];
 				}
 			yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
 			++yy_cp;
 			}
-		while ( yy_base[yy_current_state] != 3 );
+		while ( yy_base[yy_current_state] != 13 );
 
 yy_find_action:
 		yy_act = yy_accept[yy_current_state];
@@ -726,10 +727,36 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 15 "miniL.lex"
+#line 19 "miniL.lex"
+{printf("SUB \n"); ++lineCol;}
+	YY_BREAK
+case 2:
+YY_RULE_SETUP
+#line 20 "miniL.lex"
+{printf("ADD\n"); ++lineCol;}
+	YY_BREAK
+case 3:
+YY_RULE_SETUP
+#line 22 "miniL.lex"
+{
+  printf("IDENT %s\n", yytext);
+  lineCol += yyleng;
+	}
+	YY_BREAK
+case 4:
+YY_RULE_SETUP
+#line 27 "miniL.lex"
+{
+  printf("NUMBER %s\n", yytext);
+  lineCol += yyleng;
+       }
+	YY_BREAK
+case 5:
+YY_RULE_SETUP
+#line 32 "miniL.lex"
 ECHO;
 	YY_BREAK
-#line 733 "miniL-lex.c"
+#line 760 "miniL-lex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1026,7 +1053,7 @@ static int yy_get_next_buffer (void)
 		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 			{
 			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 6 )
+			if ( yy_current_state >= 13 )
 				yy_c = yy_meta[yy_c];
 			}
 		yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
@@ -1054,11 +1081,11 @@ static int yy_get_next_buffer (void)
 	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
 		{
 		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 6 )
+		if ( yy_current_state >= 13 )
 			yy_c = yy_meta[yy_c];
 		}
 	yy_current_state = yy_nxt[yy_base[yy_current_state] + yy_c];
-	yy_is_jam = (yy_current_state == 5);
+	yy_is_jam = (yy_current_state == 12);
 
 		return yy_is_jam ? 0 : yy_current_state;
 }
@@ -1734,12 +1761,25 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 15 "miniL.lex"
+#line 32 "miniL.lex"
 
-	/* C functions used in lexer */
+//int yyparse();
 
-int main(int argc, char ** argv)
-{
-   yylex();
+int main(int argc, char* argv[]) {
+  if (argc == 2) {
+    yyin = fopen(argv[1], "r");
+    if (yyin == 0) {
+      printf("Error opening file: %s\n", argv[1]);
+      exit(1);
+    }
+  }
+  else {
+    yyin = stdin;
+  }
+
+  yylex();
+  //yyparse();
+  
+  return 0;
 }
 
