@@ -1,6 +1,6 @@
 /* Include Stuff */
 %{
-  int currLine = 1, currPos = -1;
+  int currLine = 1, currPos = 0;
 %}
 
 /* Define Patterns */
@@ -45,7 +45,6 @@ NEWLINE [\n]
 "false"         {printf("FALSE\n"); currPos += yyleng;}
 "return"        {printf("RETURN\n"); currPos += yyleng;}
 
-
 "-"       {printf("SUB\n"); currPos += yyleng;}
 "+"       {printf("ADD\n"); currPos += yyleng;}
 "*"       {printf("MULT\n"); currPos += yyleng;}
@@ -59,20 +58,6 @@ NEWLINE [\n]
 "<="      {printf("LTE\n"); currPos += yyleng;}
 ">="      {printf("GTE\n"); currPos += yyleng;}
 
-{LETTER}({NLU}*{NUMBER_LETTER}+)? { printf("IDENT %s\n", yytext); currPos += yyleng; }
-
-{DIGIT}+ { printf("NUMBER %s\n", yytext); currPos += yyleng; }
-
-({DIGIT}+{NLU}+)|("_"{NLU}+) {
-	printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter.\n", currLine, currPos, yytext);
-	exit(0);
-}
-
-{LETTER}({NLU}*{NUMBER_LETTER}+)?"_" {
-	printf("Error at line %d, column %d: identifier \"%s\" cannot end with an underscore.\n", currLine, currPos, yytext);
-  	exit(0);
-}
-
 ";"       {printf("SEMICOLON\n"); currPos += yyleng;}
 ":"       {printf("COLON\n"); currPos += yyleng;}
 ","       {printf("COMMA\n"); currPos += yyleng;}
@@ -81,6 +66,20 @@ NEWLINE [\n]
 "["       {printf("L_SQUARE_BRACKET\n"); currPos += yyleng;}
 "]"       {printf("R_SQUARE_BRACKET\n"); currPos += yyleng;}
 ":="      {printf("ASSIGN\n"); currPos += yyleng;}
+
+{LETTER}({NLU}*{NUMBER_LETTER}+)? { printf("IDENT %s\n", yytext); currPos += yyleng; }
+
+{DIGIT}+ { printf("NUMBER %s\n", yytext); currPos += yyleng; }
+
+({DIGIT}+{NLU}+)|("_"{NLU}+) {
+        printf("Error at line %d, column %d: identifier \"%s\" must begin with a letter.\n", currLine, currPos, yytext);
+        exit(0);
+}
+
+{LETTER}({NLU}*{NUMBER_LETTER}+)?"_" {
+        printf("Error at line %d, column %d: identifier \"%s\" cannot end with an underscore.\n", currLine, currPos, yytext);
+        exit(0);
+}
 
 "##".*{NEWLINE} { currPos = 0; currLine++; }
 

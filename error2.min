@@ -2,7 +2,7 @@ function test1;
 beginparams
 endparams
 beginlocals
-2n : integer;
+_e2234n : integer;
 endlocals
 beginbody
 endbody
